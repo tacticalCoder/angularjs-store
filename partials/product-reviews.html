@@ -19,11 +19,11 @@
 
 	<h4>Submit a Review</h4>
 
-	<div ng-show="errors.length">
+	<div ng-show="reviewCtrl.errors.length">
 		<p>Please amend the following fields:</p>
 
 		<ul>
-			<li ng-repeat="error in errors">{{error}}</li>
+			<li ng-repeat="error in reviewCtrl.errors">{{error}}</li>
 		</ul>
 	</div>
 

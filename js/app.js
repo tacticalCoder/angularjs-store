@@ -10,17 +10,24 @@
 		});
 	}]);
 
-	app.controller('ReviewController', ['$scope', '$http', function($scope, $http) {
-		this.review = {};
-		this.addReview = function (product) {
-			this.review['productId'] = product.id;
-			$http.post(restApiUrl + 'reviews/0', this.review)
+	app.controller('ReviewController', ['$http', function($http) {
+		var reviewCtrl = this;
+
+		reviewCtrl.review = {};
+		reviewCtrl.errors = {};
+
+		reviewCtrl.addReview = function (product) {
+			reviewCtrl.review['productId'] = product.id;
+
+			$http.post(restApiUrl + 'reviews/0', reviewCtrl.review)
 				.success(function(data){
-					product.reviews.push(this.review);
-					this.review = {};
+					product.reviews.push(reviewCtrl.review);
+
+					reviewCtrl.review = {};
+					reviewCtrl.errors = {};
 				})
 				.error(function(data){
-					$scope.errors = data;
+					reviewCtrl.errors = data;
 				});
 		};
 	}]);
