@@ -3,10 +3,10 @@
 	var restApiUrl = 'rest/index.cfm?endpoint=/';
 
 	app.controller('StoreController', ['$http', function($http) {
-		var store = this;
-		store.products = [];
+		var storeCtrl = this;
+		storeCtrl.products = [];
 		$http.get(restApiUrl + 'products').success(function(data) {
-			store.products = data;
+			storeCtrl.products = data;
 		});
 	}]);
 
