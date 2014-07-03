@@ -1,6 +1,6 @@
-<ul>
-	<h4>Reviews</h4>
+<h4>Reviews</h4>
 
+<ul ng-show="product.reviews.length">
 	<li ng-repeat="review in product.reviews">
 		<blockquote>
 			<strong>{{review.stars}} Stars</strong>
@@ -18,6 +18,14 @@
 	</blockquote>
 
 	<h4>Submit a Review</h4>
+
+	<div ng-show="reviewCtrl.errors.length">
+		<p>Please amend the following fields:</p>
+
+		<ul>
+			<li ng-repeat="error in reviewCtrl.errors">{{error}}</li>
+		</ul>
+	</div>
 
 	<fieldset class="form-group">
 		<select ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars" required>

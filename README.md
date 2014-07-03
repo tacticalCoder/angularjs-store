@@ -9,6 +9,7 @@ A simple store application built whilst completing the [Shaping Up With AngularJ
 ##Technologies
 
 - AngularJS
+- ColdFusion (with [Taffy REST framework](https://github.com/atuttle/Taffy))
 - HTML5
 - CSS
 
